@@ -29,8 +29,6 @@ Note: This does NOT check if the email itself is a valid email that the user can
 This code simply makes sure that the input matches standard email structure.
 
 Here is an **example of a basic emailRegex code.**
-let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-or
 /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 (Each part of this code is broken up into different components, and although it looks weird like a strange puzzle or obstacle in a video game, it is very much discernable once you understand each aspect)
 
@@ -40,11 +38,11 @@ Please refer to this example code as you go through the contents if you need to.
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
+- [Literal Character](#literal-character)
 - [Grouping Constructs](#grouping-constructs)
 - [Bracket Expressions](#bracket-expressions)
 - [Character Classes](#character-classes)
 - [The OR Operator](#the-or-operator)
-- [Character Escapes](#character-escapes)
 - [Sources](#sources)
 
 ## Regex Components
@@ -77,6 +75,8 @@ Plus Sign: + says 1 or more occurrences of the preceding element should be prese
 example: []+
 Asterick: * says it can occur 0 or more times.
 example: []*
+Curly Brackets: []{n} defines how many times, specifically, something can occur. (replace n with number of times)
+Curly Brackets 2: []{n,} says that the selection **can occur n or more times**.
 
 ### Literal Character
 These will only match the specific item, it does not have any special role or meaning. 
@@ -85,6 +85,8 @@ At Symbol: @ matches the '@' symbol, separating the username from the domain.
 
 ### Grouping Constructs
  The parentheses: () are like grouping items together. They're a way to treat multiple items as one big treasure, making the spell's search more focused.
+ Example: ([a-zA-Z0-9]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,}) groups the name, domain, and TLD separately. 
+ TLD (Stands for Top Level Domain, and refers to the last part of the domain name, which is after the last . in an address)
 
 
 ### Bracket Expressions
@@ -102,7 +104,9 @@ At Symbol: @ matches the '@' symbol, separating the username from the domain.
  Although we don't use the Or operator in our specific email regex, this is what it does:
  | is your "or" option. It’s like saying, "Find this treasure or that one."
 
-### Character Escapes
+### meta characters
+ - also note there are Regex meta characters that we did not cover, but they are not necessary.
+ - They allow you to shortform many common regex parameters
 
 ### Sources
 These are the various resources I used to learn about Regex
